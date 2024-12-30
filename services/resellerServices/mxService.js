@@ -12,6 +12,7 @@ exports.addMxRecord = async ({ domainName, mxValue, host, ttl }) => {
           'auth-userid': process.env.AUTH_USERID,
           'api-key': process.env.RESELLER_API_KEY,
           'domain-name': domainName,
+          'dns-type': 'MX',
           'value': mxValue,
           'host': host,
           'ttl': ttl
@@ -20,7 +21,7 @@ exports.addMxRecord = async ({ domainName, mxValue, host, ttl }) => {
     );
     return response.data;
   } catch (error) {
-    throw new Error('Error adding address record: ' + error.message);
+    throw new Error('Error adding MX record: ' + error.message);
   }
 };
 
@@ -36,7 +37,7 @@ exports.updateMxRecord = async ({ domainName, host, currentValue, newValue, ttl 
           'auth-userid': process.env.AUTH_USERID,
           'api-key': process.env.RESELLER_API_KEY,
           'domain-name': domainName,
-          'dns-type': 'A',
+          'dns-type': 'MX',
           'host': host,
           'current-value': currentValue,
           'new-value': newValue,
@@ -46,7 +47,7 @@ exports.updateMxRecord = async ({ domainName, host, currentValue, newValue, ttl 
     );
     return response.data;
   } catch (error) {
-    throw new Error('Error updating Address record: ' + error.message);
+    throw new Error('Error updating MX record: ' + error.message);
   }
 };
 
@@ -61,6 +62,7 @@ exports.deleteMxRecord = async ({ domainName, host, mxValue }) => {
           'auth-userid': process.env.AUTH_USERID,
           'api-key': process.env.RESELLER_API_KEY,
           'domain-name': domainName,
+          'dns-type': 'MX',
           'host': host,
           'value': mxValue,
         },
