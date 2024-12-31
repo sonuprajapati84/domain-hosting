@@ -8,6 +8,7 @@ const txtRoutes = require('./txtRoutes');
 const srvRoutes = require('./srvRoutes');
 const nsRoutes = require('./nsRoutes');
 const dnsSearchRoutes = require('./dnsSearchRoutes');
+const aaaaRoutes = require('./aaaaRoutes');
 
 const router = express.Router();
 
@@ -20,5 +21,6 @@ router.use('/api/txt', txtRoutes);
 router.use('/api/srv', srvRoutes);
 router.use('/api/ns', nsRoutes);
 router.use('/api/dns', dnsSearchRoutes);
+router.use('/api/', aaaaRoutes);
 
 module.exports = router;

@@ -3,10 +3,10 @@ const axios = require('axios');
 exports.checkAvailability = async (domainName, tlds) => {
   const availability = {};
   for (const tld of tlds) {
-console.log('Auth User ID:', process.env.AUTH_USERID);
-console.log('API Key:', process.env.RESELLER_API_KEY);
-console.log('Domain Name:', domainName);
-console.log('TLDs:', tld);
+// console.log('Auth User ID:', process.env.AUTH_USERID);
+// console.log('API Key:', process.env.RESELLER_API_KEY);
+// console.log('Domain Name:', domainName);
+// console.log('TLDs:', tld);
 
     const fullDomain = `${domainName}.${tld}`;
     const response = await axios.get('https://test.httpapi.com/api/domains/available.json', {
